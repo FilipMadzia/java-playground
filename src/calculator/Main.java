@@ -1,11 +1,9 @@
 package calculator;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         int firstNumber = getNumberSafe("Input first number:");
         int secondNumber = getNumberSafe("Input second number:");
 
@@ -33,15 +31,15 @@ public class Main {
         System.out.println(firstNumber + " " + action + " " + secondNumber + " = " + result);
     }
 
-    static String getActionSafe() throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static String getActionSafe() {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Input action (+, -, *, /):");
 
         String action = null;
 
         while(action == null) {
-            action = reader.readLine();
+            action = scanner.nextLine();
 
             if(!action.equals("+") && !action.equals("-") && !action.equals("*") && !action.equals("/")) {
                 action = null;
@@ -53,8 +51,8 @@ public class Main {
         return action;
     }
 
-    static int getNumberSafe(String message) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static int getNumberSafe(String message) {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println(message);
 
@@ -62,7 +60,7 @@ public class Main {
 
         while(number == null) {
             try {
-                String input = reader.readLine();
+                String input = scanner.nextLine();
 
                 number = Integer.parseInt(input);
             } catch (NumberFormatException e) {
