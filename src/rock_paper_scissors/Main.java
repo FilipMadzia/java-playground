@@ -1,7 +1,5 @@
 package rock_paper_scissors;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Game.startGame();
